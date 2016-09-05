@@ -190,19 +190,20 @@ EOF
   <title>$config{title}</title>
   <link rel="shortcut icon" href="$base_url$config{favicon}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <style>
-   body {
-   	background-color: #$bgcolor;
-   	color: #333;
-   }
-   body.black {
-   	color: #ccc;
-   }
-   .logo {
-   	display: inline-block;
-   	text-align: right;
-   	margin-bottom: 30px;
-   }
+   <style>
+    body {
+    	background-color: #$bgcolor;
+    	color: #333;
+    }
+    body.black {
+    	color: #ccc;
+    }
+    .logo {
+    	display: inline-block;
+    	text-align: right;
+    	margin-bottom: 30px;
+    }
+  </style>
  </head>
  <body class="$theme">
   $piwik_code
@@ -359,6 +360,7 @@ EOF
 		        </label>
 EOF
 	}
+		print(OUT <<EOF);
 		    	<label class="radio-inline">
 		    		<input type="radio" checked name="when" value="1day"> Daily
 		        </label>
@@ -633,10 +635,6 @@ if(!$config{max_historic_years}) {
 	logger("WARNING: the 'max_historic_years' option doesn't exist. Please consider upgrading your configuration file.");
 	$config{max_historic_years} = 1;
 }
-if($config{max_historic_years} > 5) {
-	logger("WARNING: the 'max_historic_years' option exceeds the maximum years permitted (5).");
-	exit(0);
-}
 if(!$config{image_format}) {
 	logger("WARNING: the 'image_format' option is not valid or doesn't exist. Please consider upgrading your configuration file.");
 	# it's set in 'monitorix.cgi'
@@ -676,7 +674,7 @@ while(1) {
 		}
 
 		# TRAFFACCT graph daily reports
-		if(lc($config{traffacct}->{enabled}) eq "y" && lc($config{traffacct}->{reports}->{enabled}) eq "y") {
+		if(lc($config{traffacct}->{enabled}) eq "y") {
 			my $d = "traffacct";
 			undef($d) if(!grep {trim($_) eq $d} (@{$config{debug}}));
 
@@ -690,10 +688,12 @@ while(1) {
 				}
 
 				# send reports every first day of a month
-				if($mday == 1) {
-					eval { traffacct::traffacct_sendreports(\%config, $d); };
-					if($@) {
-						logger("traffacct::traffacct_sendreports(): $@");
+				if(lc($config{traffacct}->{reports}->{enabled}) eq "y") {
+					if($mday == 1) {
+						eval { traffacct::traffacct_sendreports(\%config, $d); };
+						if($@) {
+							logger("traffacct::traffacct_sendreports(): $@");
+						}
 					}
 				}
 			}

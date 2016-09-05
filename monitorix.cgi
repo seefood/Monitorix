@@ -98,10 +98,10 @@ sub multihost {
 		for($n = 0; $n < scalar(@host); $n++) {
 			print "  <div class=\"col-sm-$col_width\">\n";
 			print "      <div class=\"panel panel-default\">\n";
-		  	print "  	<div class=\"panel-heading\">\n";
-		    	print "  	    <h3 class=\"panel-title\">" . $host[$n] . "</h3>\n";
-		  	print "  	</div>\n";
-		  	print "  	<div class=\"panel-body\">\n";
+			print "  	<div class=\"panel-heading\">\n";
+			print "  	    <h3 class=\"panel-title\">" . $host[$n] . "</h3>\n";
+			print "  	</div>\n";
+			print "  	<div class=\"panel-body\">\n";
 			print "	 	    <iframe src=\"" . $url[$n] . "/monitorix.cgi?mode=localhost&when=$cgi->{when}&graph=$graph&color=$cgi->{color}&silent=imagetag\" height=\"201\" width=\"397\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\"></iframe>\n";
 			print "		</div>\n";
 			if(lc($multihost->{footer_url}) eq "y") {
@@ -114,10 +114,10 @@ sub multihost {
 		}
 	} else {
 		print "      <div class=\"panel panel-default\">\n";
-	  	print "  	<div class=\"panel-heading\">\n";
-	    	print "  	    <h3 class=\"panel-title\">" . $host[$cgi->{val}] . "</h3>\n";
-	  	print "  	</div>\n";
-	  	print "  	<div class=\"panel-body\">\n";
+		print "  	<div class=\"panel-heading\">\n";
+		print "  	    <h3 class=\"panel-title\">" . $host[$cgi->{val}] . "</h3>\n";
+		print "  	</div>\n";
+		print "  	<div class=\"panel-body\">\n";
 		print "	 	    <iframe src=\"" . (split(',', $multihost->{remotehost_desc}->{$cgi->{val}}))[0] . (split(',', $multihost->{remotehost_desc}->{$cgi->{val}}))[2] . "/monitorix.cgi?mode=localhost&when=$cgi->{when}&graph=$graph&color=$cgi->{color}&silent=imagetagbig\" height=\"249\" width=\"545\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\"></iframe>\n";
 		print "		</div>\n";
 		if(lc($multihost->{footer_url}) eq "y") {
@@ -132,22 +132,24 @@ sub multihost {
 sub graph_header {
 	my ($title, $colspan) = @_;
 	print("\n");
-	print("  <!-- graph table begins -->\n");
+	print("<!-- graph table begins -->\n");
 	print("  <div class=\"panel panel-default\">\n");
-  	print("  	<div class=\"panel-heading\">\n");
-    	print("  	    <h3 class=\"panel-title\">$title</h3>\n");
-  	print("  	</div>\n");
-  	print("  	<div class=\"panel-body\">\n");
-  	print("  	    <div class=\"row\">\n");
+	print("         <div class=\"panel-heading\">\n");
+	print("             <h3 class=\"panel-title\">$title</h3>\n");
+	print("         </div>\n");
+	print("         <div class=\"panel-body\">\n");
+	print("             <div class=\"row col-md-12\">\n");
+
+	print("  <table cellspacing='5' cellpadding='0' bgcolor='$colors{graph_bg_color}' border='1'>\n");
 }
 
 sub graph_footer {
-	print("  	    </div>\n");
-	print("  	</div>\n");
+	print("  </table>\n");
+	print("             </div>\n");
+	print("         </div>\n");
 	print("  </div>\n");
-	print("  <!-- graph table ends -->\n");
+	print("<!-- graph table ends -->\n");
 }
-
 
 # MAIN
 # ----------------------------------------------------------------------------
@@ -399,14 +401,14 @@ EOF
 	print("      body, .panel-default { background-color: $colors{bg_color}; color: $colors{fg_color}; }\n");
 	print("      .panel-default > .panel-heading, .panel-footer { background-color: $colors{title_bg_color}; color: $colors{title_fg_color}; }\n");
 	print("      .container { max-width: 910px; }\n");
-	print("      img { max-width: 100%; height: auto; }\n");
+	print("      img { /* max-width: 100%; */ height: auto; }\n");
 	print("    </style>\n");
 	print("  </head>\n");
 	print("  <body>\n");
 	print("    $piwik_code\n");
 	print("    <div class=\"container\">\n");
 	print(" 	<div class=\"row\">\n");
-	print("  		<div class=\"col-sm-12 text-center\">\n");
+	print("  		<div class=\"col-md-12 text-center\">\n");
 	print("  			<h2>\n");
 
 	if(($val ne "all" || $val ne "group") && $mode ne "multihost") {
@@ -505,3 +507,4 @@ if(!$silent) {
 }
 
 0;
+# vim: ts=4
