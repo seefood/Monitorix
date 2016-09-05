@@ -190,19 +190,20 @@ EOF
   <title>$config{title}</title>
   <link rel="shortcut icon" href="$base_url$config{favicon}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <style>
-   body {
-   	background-color: #$bgcolor;
-   	color: #333;
-   }
-   body.black {
-   	color: #ccc;
-   }
-   .logo {
-   	display: inline-block;
-   	text-align: right;
-   	margin-bottom: 30px;
-   }
+   <style>
+    body {
+    	background-color: #$bgcolor;
+    	color: #333;
+    }
+    body.black {
+    	color: #ccc;
+    }
+    .logo {
+    	display: inline-block;
+    	text-align: right;
+    	margin-bottom: 30px;
+    }
+  </style>
  </head>
  <body class="$theme">
   $piwik_code
