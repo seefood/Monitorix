@@ -140,7 +140,7 @@ sub graph_header {
 	print("         <div class=\"panel-body\">\n");
 	print("             <div class=\"row col-md-12\">\n");
 
-	print("  <table cellspacing='5' cellpadding='0' width='1' bgcolor='$colors{graph_bg_color}' border='1'>\n");
+	print("  <table cellspacing='5' cellpadding='0' bgcolor='$colors{graph_bg_color}' border='1'>\n");
 }
 
 sub graph_footer {
@@ -401,7 +401,7 @@ EOF
 	print("      body, .panel-default { background-color: $colors{bg_color}; color: $colors{fg_color}; }\n");
 	print("      .panel-default > .panel-heading, .panel-footer { background-color: $colors{title_bg_color}; color: $colors{title_fg_color}; }\n");
 	print("      .container { max-width: 910px; }\n");
-	print("      img { max-width: 100%; height: auto; }\n");
+	print("      img { /* max-width: 100%; */ height: auto; }\n");
 	print("    </style>\n");
 	print("  </head>\n");
 	print("  <body>\n");
