@@ -98,10 +98,10 @@ sub multihost {
 		for($n = 0; $n < scalar(@host); $n++) {
 			print "  <div class=\"col-sm-$col_width\">\n";
 			print "      <div class=\"panel panel-default\">\n";
-		  	print "  	<div class=\"panel-heading\">\n";
-		    	print "  	    <h3 class=\"panel-title\">" . $host[$n] . "</h3>\n";
-		  	print "  	</div>\n";
-		  	print "  	<div class=\"panel-body\">\n";
+			print "  	<div class=\"panel-heading\">\n";
+			print "  	    <h3 class=\"panel-title\">" . $host[$n] . "</h3>\n";
+			print "  	</div>\n";
+			print "  	<div class=\"panel-body\">\n";
 			print "	 	    <iframe src=\"" . $url[$n] . "/monitorix.cgi?mode=localhost&when=$cgi->{when}&graph=$graph&color=$cgi->{color}&silent=imagetag\" height=\"201\" width=\"397\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\"></iframe>\n";
 			print "		</div>\n";
 			if(lc($multihost->{footer_url}) eq "y") {
@@ -114,10 +114,10 @@ sub multihost {
 		}
 	} else {
 		print "      <div class=\"panel panel-default\">\n";
-	  	print "  	<div class=\"panel-heading\">\n";
-	    	print "  	    <h3 class=\"panel-title\">" . $host[$cgi->{val}] . "</h3>\n";
-	  	print "  	</div>\n";
-	  	print "  	<div class=\"panel-body\">\n";
+		print "  	<div class=\"panel-heading\">\n";
+		print "  	    <h3 class=\"panel-title\">" . $host[$cgi->{val}] . "</h3>\n";
+		print "  	</div>\n";
+		print "  	<div class=\"panel-body\">\n";
 		print "	 	    <iframe src=\"" . (split(',', $multihost->{remotehost_desc}->{$cgi->{val}}))[0] . (split(',', $multihost->{remotehost_desc}->{$cgi->{val}}))[2] . "/monitorix.cgi?mode=localhost&when=$cgi->{when}&graph=$graph&color=$cgi->{color}&silent=imagetagbig\" height=\"249\" width=\"545\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\"></iframe>\n";
 		print "		</div>\n";
 		if(lc($multihost->{footer_url}) eq "y") {
@@ -134,11 +134,11 @@ sub graph_header {
 	print("\n");
 	print("  <!-- graph table begins -->\n");
 	print("  <div class=\"panel panel-default\">\n");
-  	print("  	<div class=\"panel-heading\">\n");
-    	print("  	    <h3 class=\"panel-title\">$title</h3>\n");
-  	print("  	</div>\n");
-  	print("  	<div class=\"panel-body\">\n");
-  	print("  	    <div class=\"row\">\n");
+	print("  	<div class=\"panel-heading\">\n");
+	print("  	    <h3 class=\"panel-title\">$title</h3>\n");
+	print("  	</div>\n");
+	print("  	<div class=\"panel-body\">\n");
+	print("  	    <div class=\"row\">\n");
 }
 
 sub graph_footer {
@@ -505,3 +505,4 @@ if(!$silent) {
 }
 
 0;
+# vim: ts=4
