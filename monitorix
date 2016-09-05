@@ -360,7 +360,7 @@ EOF
 		        </label>
 EOF
 	}
-		print(OUT <<EOF);
+	print(OUT <<EOF);
 		    	<label class="radio-inline">
 		    		<input type="radio" checked name="when" value="1day"> Daily
 		        </label>
@@ -374,28 +374,24 @@ EOF
 		          	<input type="radio" name="when" value="1year"> Yearly
 		        </label>
 EOF
-
-	if($config{max_historic_years} > 1) {
-		print(OUT "      <tr>\n");
-	}
 	for($n = 2; $n <= $config{max_historic_years}; $n++) {
+		if($n > 2 && (($n - 2) % 4) == 0) {
+			print(OUT "      </tr>\n");
+			print(OUT "      <tr>\n");
+		}
 		print(OUT <<EOF);
         		<label class="radio-inline">
 		          	<input type="radio" name="when" value="${n}year">$n Years
 		        </label>
 EOF
 	}
-	if($config{max_historic_years} > 1) {
-		print(OUT "      </tr>\n");
-	}
-
 	print(OUT <<EOF);
 				    </div>
 			    </div>
 			</div>
 		    <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-					<input type="hidden" name="color" value="$theme">
+				<input type="hidden" name="color" value="$theme">
 			      	<button type="submit" class="btn btn-default">OK</button>
 			    </div>
 		  	</div>

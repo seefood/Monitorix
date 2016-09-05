@@ -148,7 +148,7 @@ sub graph_footer {
 	print("             </div>\n");
 	print("         </div>\n");
 	print("  </div>\n");
-	print("<!-- graph table ends -->\n");
+	print("  <!-- graph table ends -->\n");
 }
 
 # MAIN
@@ -398,17 +398,18 @@ EOF
 		print("    <meta http-equiv=\"Refresh\" content=\"" . $config{refresh_rate} . "\">\n");
 	}
 	print("    <style>\n");
-	print("      body, .panel-default { background-color: $colors{bg_color}; color: $colors{fg_color}; }\n");
-	print("      .panel-default > .panel-heading, .panel-footer { background-color: $colors{title_bg_color}; color: $colors{title_fg_color}; }\n");
+	print("      body, .panel-default { background-color: #$colors{bg_color}; color: #$colors{fg_color}; }\n");
+	print("      .panel-default > .panel-heading, .panel-footer { background-color: #$colors{title_bg_color}; color: #$colors{title_fg_color}; }\n");
 	print("      .container { max-width: 910px; }\n");
-	print("      img { /* max-width: 100%; */ height: auto; }\n");
+        print("      .panel .row { margin: 0; }\n");
+	print("      .panel img { float: left; max-width: 100%; height: auto; }\n");
 	print("    </style>\n");
 	print("  </head>\n");
 	print("  <body>\n");
 	print("    $piwik_code\n");
 	print("    <div class=\"container\">\n");
 	print(" 	<div class=\"row\">\n");
-	print("  		<div class=\"col-md-12 text-center\">\n");
+	print("  		<div class=\"col-sm-12 text-center\">\n");
 	print("  			<h2>\n");
 
 	if(($val ne "all" || $val ne "group") && $mode ne "multihost") {
@@ -507,4 +508,3 @@ if(!$silent) {
 }
 
 0;
-# vim: ts=4
