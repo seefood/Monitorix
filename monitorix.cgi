@@ -132,22 +132,24 @@ sub multihost {
 sub graph_header {
 	my ($title, $colspan) = @_;
 	print("\n");
-	print("  <!-- graph table begins -->\n");
+	print("<!-- graph table begins -->\n");
 	print("  <div class=\"panel panel-default\">\n");
-	print("  	<div class=\"panel-heading\">\n");
-	print("  	    <h3 class=\"panel-title\">$title</h3>\n");
-	print("  	</div>\n");
-	print("  	<div class=\"panel-body\">\n");
-	print("  	    <div class=\"row\">\n");
+	print("         <div class=\"panel-heading\">\n");
+	print("             <h3 class=\"panel-title\">$title</h3>\n");
+	print("         </div>\n");
+	print("         <div class=\"panel-body\">\n");
+	print("             <div class=\"row col-md-12\">\n");
+
+	print("  <table cellspacing='5' cellpadding='0' width='1' bgcolor='$colors{graph_bg_color}' border='1'>\n");
 }
 
 sub graph_footer {
-	print("  	    </div>\n");
-	print("  	</div>\n");
+	print("  </table>\n");
+	print("             </div>\n");
+	print("         </div>\n");
 	print("  </div>\n");
-	print("  <!-- graph table ends -->\n");
+	print("<!-- graph table ends -->\n");
 }
-
 
 # MAIN
 # ----------------------------------------------------------------------------
@@ -406,7 +408,7 @@ EOF
 	print("    $piwik_code\n");
 	print("    <div class=\"container\">\n");
 	print(" 	<div class=\"row\">\n");
-	print("  		<div class=\"col-sm-12 text-center\">\n");
+	print("  		<div class=\"col-md-12 text-center\">\n");
 	print("  			<h2>\n");
 
 	if(($val ne "all" || $val ne "group") && $mode ne "multihost") {
