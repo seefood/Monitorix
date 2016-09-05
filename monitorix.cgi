@@ -393,7 +393,7 @@ EOF
 	print("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
 	print("    <title>$config{title}</title>\n");
 	print("    <link rel=\"shortcut icon\" href=\"" . $config{url} . "/" . $config{favicon} . "\">\n");
-	print("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">\n");
+	print("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n");
 	if($config{refresh_rate}) {
 		print("    <meta http-equiv=\"Refresh\" content=\"" . $config{refresh_rate} . "\">\n");
 	}

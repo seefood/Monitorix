@@ -189,7 +189,7 @@ EOF
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>$config{title}</title>
   <link rel="shortcut icon" href="$base_url$config{favicon}">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <style>
     body {
     	background-color: #$bgcolor;
