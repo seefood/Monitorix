@@ -463,7 +463,7 @@ sub wowza_cgi {
 	#
 	if(lc($config->{iface_mode}) eq "text") {
 		if($title) {
-			main::graph_header($title, 2);
+			main::graph_header($package,$title, 2);
 			print("    <tr>\n");
 			print("    <td bgcolor='$colors->{title_bg_color}'>\n");
 		}
@@ -566,7 +566,7 @@ sub wowza_cgi {
 			print("   <br>\n");
 		}
 		if($title) {
-			main::graph_header($title, 2);
+			main::graph_header($package,$title, 2);
 		}
 
 		@riglim = @{setup_riglim($rigid[0], $limit[0])};

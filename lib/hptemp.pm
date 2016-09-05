@@ -275,7 +275,7 @@ sub hptemp_cgi {
 	#
 	if(lc($config->{iface_mode}) eq "text") {
 		if($title) {
-			main::graph_header($title, 2);
+			main::graph_header($package,$title, 2);
 			print("    <tr>\n");
 			print("    <td bgcolor='$colors->{title_bg_color}'>\n");
 		}
@@ -370,7 +370,7 @@ sub hptemp_cgi {
 	}
 
 	if($title) {
-		main::graph_header($title, 2);
+		main::graph_header($package,$title, 2);
 		print("    <tr>\n");
 		print("    <td bgcolor='$colors->{title_bg_color}'>\n");
 	}

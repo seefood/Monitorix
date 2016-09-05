@@ -130,8 +130,8 @@ sub multihost {
 }
 
 sub graph_header {
-	my ($title, $colspan) = @_;
-	print("\n");
+	my ($anchor, $title, $colspan) = @_;
+	print("<a name=\"$anchor\">\n");
 	print("<!-- graph table begins -->\n");
 	print("  <div class=\"panel panel-default\">\n");
 	print("         <div class=\"panel-heading\">\n");

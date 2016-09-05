@@ -375,7 +375,7 @@ sub port_cgi {
 	#
 	if(lc($config->{iface_mode}) eq "text") {
 		if($title) {
-			main::graph_header($title, 2);
+			main::graph_header($package,$title, 2);
 			print("    <tr>\n");
 			print("    <td bgcolor='$colors->{title_bg_color}'>\n");
 		}
@@ -496,7 +496,7 @@ sub port_cgi {
 
 		if($title) {
 			if($n == 0) {
-				main::graph_header($title, $port->{graphs_per_row});
+				main::graph_header($package,$title, $port->{graphs_per_row});
 			}
 			if($n2 == 1) {
 				print("    <tr>\n");

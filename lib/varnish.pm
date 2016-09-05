@@ -415,7 +415,7 @@ sub varnish_cgi {
 	#
 	if(lc($config->{iface_mode}) eq "text") {
 		if($title) {
-			main::graph_header($title, 2);
+			main::graph_header($package,$title, 2);
 			print("    <tr>\n");
 			print("    <td bgcolor='$colors->{title_bg_color}'>\n");
 		}
@@ -512,7 +512,7 @@ sub varnish_cgi {
 	}
 
 	if($title) {
-		main::graph_header($title, 2);
+		main::graph_header($package,$title, 2);
 		print("    <tr>\n");
 		print("    <td valign='top' bgcolor='$colors->{title_bg_color}'>\n");
 	}

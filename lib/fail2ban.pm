@@ -262,7 +262,7 @@ sub fail2ban_cgi {
 	#
 	if(lc($config->{iface_mode}) eq "text") {
 		if($title) {
-			main::graph_header($title, 2);
+			main::graph_header($package,$title, 2);
 			print("    <tr>\n");
 			print("    <td bgcolor='$colors->{title_bg_color}'>\n");
 		}
@@ -354,7 +354,7 @@ sub fail2ban_cgi {
 	while($n < scalar(my @fl = split(',', $fail2ban->{list}))) {
 		if($title) {
 			if($n == 0) {
-				main::graph_header($title, $fail2ban->{graphs_per_row});
+				main::graph_header($package,$title, $fail2ban->{graphs_per_row});
 			}
 			print("    <tr>\n");
 		}
