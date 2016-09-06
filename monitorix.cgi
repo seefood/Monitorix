@@ -479,6 +479,17 @@ if($mode eq "localhost") {
 			}
 		}
 	}
+	print("<div class=col-md-3 role=complementary><nav class=\"monitorix-sidebar navbar navbar-default  navbar-left hidden-print hidden-sm hidden-xs\">\n");
+	print("  <div class=\"container\">\n");
+	print("    <h3>Graphs:</h3><ul class=\"nav monitorix-sidenav\">\n");
+	foreach (split(',', $config{graph_name})) {
+		my $gn = trim($_);
+		if(lc($config{graph_enable}->{$gn}) eq "y") {
+			print("    <li><a href=\"#$gn\">$gn</li>\n");
+		}
+	}
+	print("  </ul></div>\n");
+	print("</nav></div>\n");
 } elsif($mode eq "multihost") {
 	multihost(\%config, \%colors, \%cgi);
 } elsif($mode eq "traffacct") {
